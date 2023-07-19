@@ -20,9 +20,12 @@ jobs:
       run:  curl -L https://github.com/franalgaba/cairo-installer/raw/main/bin/cairo-installer | bash 
     - name: set env 
       run: |
-         echo 'export CAIRO_ROOT="$HOME/.cairo"' >> ~/.bashrc
+         echo 'export CAIRO_ROOT="$HOME/.cairo"' >> ~/.bashrc &&
            echo 'command -v cairo-compile >/dev/null || export PATH="$CAIRO_ROOT/target/release:$PATH"' >> ~/.bashrc
-      
-
-
+    - name: install scarb
+      run: curl --proto '=https' --tlsv1.2 -sSf https://docs.swmansion.com/scarb/install.sh | sh
+    - name: build  app
+      run: scarb build
+    - name: run app
+      run: scarb run run-lib
  
