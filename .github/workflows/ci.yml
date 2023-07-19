@@ -27,5 +27,5 @@ jobs:
     - name: build  app
       run: scarb build
     - name: run app
-      run: scarb run run-lib
+      run: scarb run app
  
