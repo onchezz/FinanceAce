@@ -7,4 +7,4 @@ version = "0.1.0"
 [dependencies]
 # foo = { path = "vendor/foo" }
 [scripts]
-run-lib = "cairo-run src/lib.cairo"
+app = "cairo-run -s  src/lib.cairo"

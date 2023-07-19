@@ -17,6 +17,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: install cairo
-      run: curl -L https://github.com/franalgaba/cairo-installer/raw/main/bin/cairo-installer | bash
+      run:  curl -L https://github.com/franalgaba/cairo-installer/raw/main/bin/cairo-installer | bash 
+    - name: set env 
+      run: |
+         echo 'export CAIRO_ROOT="$HOME/.cairo"' >> ~/.bashrc
+           echo 'command -v cairo-compile >/dev/null || export PATH="$CAIRO_ROOT/target/release:$PATH"' >> ~/.bashrc
+      
+
 
  
