@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - uses: actions-rust-lang/setup-rust-toolchain@v1
+    - uses: dtolnay/rust-toolchain@stable
     
     - name: rust version
       run: |
@@ -32,11 +32,7 @@ jobs:
         echo 'export CAIRO_ROOT="$HOME/.cairo"' >> ~/.bash_profile
         echo 'command -v cairo-compile >/dev/null || export PATH="$CAIRO_ROOT/target/release:$PATH"' >> ~/.bash_profile
         curl --proto '=https' --tlsv1.2 -sSf https://docs.swmansion.com/scarb/install.sh | sh
-    - name: exit schell
-      run: exec "$SHELL"
 
-    - name: install scarb
-      run: curl --proto '=https' --tlsv1.2 -sSf https://docs.swmansion.com/scarb/install.sh | sh
     - name: build  app
       run: |
         scarb --version
