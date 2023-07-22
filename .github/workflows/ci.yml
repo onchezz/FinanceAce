@@ -19,14 +19,22 @@ jobs:
     - uses: actions-rust-lang/setup-rust-toolchain@v1
     
     - name: rust version
-      run: rustup --version
-    
+      run: |
+        rustup override set stable && rustup update
+        rustup --version
+        
     - name: install cairo
       run:  curl -L https://github.com/franalgaba/cairo-installer/raw/main/bin/cairo-installer | bash 
     - name: set env 
       run: |
-         echo 'export CAIRO_ROOT="$HOME/.cairo"' >> ~/.bashrc &&
-           echo 'command -v cairo-compile >/dev/null || export PATH="$CAIRO_ROOT/target/release:$PATH"' >> ~/.bashrc
+        echo 'export CAIRO_ROOT="$HOME/.cairo"' >> ~/.bashrc &&
+        echo 'command -v cairo-compile >/dev/null || export PATH="$CAIRO_ROOT/target/release:$PATH"' >> ~/.bashrc
+        echo 'export CAIRO_ROOT="$HOME/.cairo"' >> ~/.bash_profile
+        echo 'command -v cairo-compile >/dev/null || export PATH="$CAIRO_ROOT/target/release:$PATH"' >> ~/.bash_profile
+    
+    - name: exit schell
+      run: exec "$SHELL"
+
     - name: install scarb
       run: curl --proto '=https' --tlsv1.2 -sSf https://docs.swmansion.com/scarb/install.sh | sh
     - name: build  app
