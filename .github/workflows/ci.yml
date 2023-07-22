@@ -43,9 +43,5 @@ jobs:
     - name: test app 
       run: scarb run app
  
-  
-    needs: [build]
-    steps:
-    - name: test app 
-      run: scarb run app
+
 
