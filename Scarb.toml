@@ -8,10 +8,31 @@ sierra = true
 casm = true
 
 [dependencies]
-starknet = "2.1.0-rc2"
-snforge_std = { git = "https://github.com/foundry-rs/starknet-foundry.git", tag = "v0.4.1" }
+starknet = "2.2.0"
+snforge_std = { git = "https://github.com/foundry-rs/starknet-foundry.git", tag = "v0.5.0" }
 
 [tool.snforge]
 exit_first = true
 
+# [tool.sncast]
+
+
+[tool.sncast.financer]
+account = "financer"
+accounts-file = "/home/gitpod/.starknet_accounts/starknet_open_zeppelin_accounts.json"
+url = "http://127.0.0.1:5050/rpc"
+
 [tool.sncast]
+account = "finance"
+accounts-file = "/home/gitpod/.starknet_accounts/starknet_open_zeppelin_accounts.json"
+url = "http://127.0.0.1:5051/rpc"
+
+[tool.sncast.finnacer]
+account = "finnacer"
+accounts-file = "/home/gitpod/.starknet_accounts/starknet_open_zeppelin_accounts.json"
+url = "http://127.0.0.1:5050/rpc"
+
+[tool.sncast.test]
+account = "test"
+accounts-file = "/home/gitpod/.starknet_accounts/starknet_open_zeppelin_accounts.json"
+url = "http://127.0.0.1:5050/rpc"
