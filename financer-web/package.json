@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "@expo/webpack-config": "^19.0.0",
+    "@starknet-react/core": "^1.0.4",
+    "expo": "^49.0.3",
+    "get-starknet": "^3.0.1",
+    "next": "~13.1.1",
+    "react": "18.1.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.70.5",
+    "react-native-web": "~0.19.6",
+    "starknet": "^5.19.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@expo/next-adapter": "~5.0.0"
+  },
+  "scripts": {
+    "start": "next dev",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "build": "next build"
+  },
+  "name": "financer",
+  "version": "1.0.0",
+  "private": true
+}
